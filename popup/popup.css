@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 300px;
+    height: 350px;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.attentionButton {
+    background-image: url("./img/image-popup-exclamation.png");
+    background-size: cover;
+    background-color: white;
+    border: none;
+    margin-top: 40px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.alignement {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    border-top: 1px solid #000;
+    padding: 5px 5px 10px 5px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}

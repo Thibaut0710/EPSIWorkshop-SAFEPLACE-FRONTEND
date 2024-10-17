@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "SafePlace",
+    "version": "1.0",
+    "description": "Signal bad content from social media",
+    "icons": {
+        "72": "./popup/img/icon-72x72.png",
+        "96": "./popup/img/icon-96x96.png",
+        "144": "./popup/img/icon-144x144.png",
+        "196": "./popup/img/icon-196x196.png"
+    },
+    "author": "Romain",
+    "permissions": ["activeTab", "scripting", "tabs"],
+    "action": {
+        "default_popup": "./popup/popup.html",
+        "default_title": "Open SafePlace"
+    },
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+        }
+    ]
+}
