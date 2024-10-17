@@ -24,18 +24,17 @@
                 >
                 <v-card
                     width="780"
-                    height="450"
                     class="pa-4"
                 >
                 <v-form ref="formCreateTicket">
-                    <v-card-title style="font-weight: 700;">Création d'un Ticket
+                    <v-card-title class="mx-3" style="font-weight: 700;">Création d'un Ticket
                         <v-icon @click="dialog = false" style="position: absolute; top: 10px; right: 10px;cursor: pointer;">mdi-close</v-icon>
                     </v-card-title>
                     <v-card-text class="pt-0 pl-4">
-                    <span>Thank you for your report.</span>
-                    <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet numquam dicta officia, suscipit velit asperiores quidem esse recusandae, corrupti iusto earum, animi sit molestias cupiditate eos! Aperiam veniam eligendi cumque?</p>
-                    <v-textarea :rules="[rules.required]" v-model="commentaireTicket" hide-details class="mt-8" rows="1" auto-grow variant="outlined" label="ajoutez un commentaire"></v-textarea>
-                    <v-checkbox :rules="[rules.required]" v-model="blockContent" hide-details label="Block content"></v-checkbox>
+                    <span class="mx-3">Thank you for your report.</span>
+                    <p class="mt-4 mx-3" style="text-align:justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet numquam dicta officia, suscipit velit asperiores quidem esse recusandae, corrupti iusto earum, animi sit molestias cupiditate eos! Aperiam veniam eligendi cumque?</p>
+                    <v-textarea :rules="[rules.required]" v-model="commentaireTicket" hide-details="auto" class="mt-8 mx-3" rows="1" auto-grow variant="outlined" label="ajoutez un commentaire"></v-textarea>
+                    <v-checkbox :rules="[rules.required]" v-model="blockContent" hide-details="auto" label="Bloquer le contenu"></v-checkbox>
                 </v-card-text>
                 </v-form>
                 <v-card-actions>
@@ -67,7 +66,7 @@
     </div>
     </v-toolbar>
     <div class="d-flex flex-row">
-        <v-card style="border:1px solid;border-radius: 0px;" width="468" height="93vh">
+        <v-card style="border:1px solid;border-radius: 0px;" width="465" height="93vh">
             <v-card-text class="d-flex flex-column  justify-center align-items-center pa-2">
                 <v-btn @click="selectTicket(item)" variant="text" class="text-center pa-2 my-1" style="border:1px solid black" v-for="item in listFiltre">Ticket #{{ item._id }}</v-btn>
             </v-card-text>
@@ -82,7 +81,7 @@
                     </v-tooltip>
                     <span v-else>{{ ticketSelected.url }}</span>
                      - Signalement Ticket #{{ ticketSelected._id }}</v-card-title>
-                <v-card-text class="ma-4">
+                <v-card-text class="ma-4" style="text-align:justify">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque error recusandae, deserunt neque voluptatem, veritatis maxime sequi dolore hic debitis repellat veniam eveniet impedit! Incidunt hic animi amet quasi a!
                 </v-card-text>
                 <v-divider :thickness="3" class="ma-4"></v-divider>
@@ -114,13 +113,12 @@ import { watch } from "vue";
 import { reactive } from "vue";
 import { ref } from "vue"
 import { useRouter } from 'vue-router'
+import {rules} from "@/utils/rules.js"
+
 
 const router = useRouter()
 let list = reactive([])
 const jwt = ref(localStorage.getItem('jwt'))
-const rules = reactive({
-    required: v => !!v || 'This field is required'
-})
 const formCreateTicket = ref(false);
 const blockContent = ref(false);
 const commentaireTicket = ref('');

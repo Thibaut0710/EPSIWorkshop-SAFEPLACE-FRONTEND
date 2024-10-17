@@ -1,8 +1,8 @@
 <template>
-    <div id="container" style="height: 100vh" class="d-flex flex-row justify-center align-center">
-        <v-card elevation="0" style="height:20rem;width:20%;margin-top:20rem">
+    <div id="container" style="height: 100vh" class="d-flex flex-column justify-center align-center">
+        <v-card elevation="0" style="width:20%;margin-top:260px">
             <v-form ref="formLogin">
-            <v-card-title style="background-color:#2d64a5;color:white">Login</v-card-title>
+            <v-card-title style="background-color:#2d64a5;color:white">SAFE PLACE - Panel Admin</v-card-title>
                 <v-card-text class="d-flex flex-column justify-space-between mt-4">
                     <v-text-field class="my-4" :rules="[rules.required,rules.emailFormat]" v-model="emailUser" label="Mail" variant="outlined"></v-text-field>
                     <v-text-field
@@ -70,5 +70,6 @@ async function login(){
     background:url('@/assets/background.jpg');
     background-size: cover;
     background-position: center;
+    /* background-color:#e7e7e7 */
 }
 </style>
